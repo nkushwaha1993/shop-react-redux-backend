@@ -41,10 +41,11 @@ const isDataValid = (data) => {
   return true;
 };
 
-const createProduct: ValidatedEventAPIGatewayProxyEvent<typeof schema> = async (
-  event: any
-) => {
+export const createProduct: ValidatedEventAPIGatewayProxyEvent<
+  typeof schema
+> = async (event: any) => {
   try {
+    console.log(`Incoming event: ${JSON.stringify(event)}`);
     const data = JSON.parse(event.body);
 
     if (!isDataValid(data)) {
@@ -64,7 +65,7 @@ const createProduct: ValidatedEventAPIGatewayProxyEvent<typeof schema> = async (
       product_id: id,
       count: data.count,
     };
-
+    console.log(`created products: ${JSON.stringify(event.body)}`);
     await Promise.all([putProduct(product), putStock(stock)]);
     return formatJSONResponse(200, { ...product, count: stock.count });
   } catch (e) {

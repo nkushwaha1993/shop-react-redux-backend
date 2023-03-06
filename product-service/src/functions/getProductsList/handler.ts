@@ -48,7 +48,7 @@ export const getProductsList: ValidatedEventAPIGatewayProxyEvent<
   try {
     const [products, stocks] = await Promise.all([getProducts(), getStocks()]);
     const items = mergeResults(products.Items, stocks.Items);
-
+    console.log(`getProducts: ${JSON.stringify(items)}`);
     return formatJSONResponse(200, items);
   } catch (e) {
     return formatJSONResponse(500, e);

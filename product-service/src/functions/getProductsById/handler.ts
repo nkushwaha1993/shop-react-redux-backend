@@ -32,6 +32,7 @@ export const getProductsById: ValidatedEventAPIGatewayProxyEvent<
   unknown
 > = async (event): Promise<APIGatewayProxyResult> => {
   try {
+    console.log(`Incoming event: ${JSON.stringify(event)}`);
     const { productId } = event.pathParameters;
     const [product, stock] = await Promise.all([
       getProduct(productId),
@@ -39,6 +40,7 @@ export const getProductsById: ValidatedEventAPIGatewayProxyEvent<
     ]);
     if (product.Item && stock.Item) {
       const item = { ...product.Item, count: stock.Item.count || 0 };
+      console.log(`getProductById: ${JSON.stringify(item)}`);
       return formatJSONResponse(200, item);
     } else {
       return formatJSONResponse(404, undefined);
