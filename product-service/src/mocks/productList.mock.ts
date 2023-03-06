@@ -4,8 +4,6 @@ export const productList = [
     title: "iPhone 9",
     description: "An apple mobile which is nothing like apple",
     price: 549,
-    category: "smartphones",
-    images: "https://i.dummyjson.com/data/products/1/3.jpg",
   },
   {
     id: "2",
@@ -13,8 +11,6 @@ export const productList = [
     description:
       "SIM-Free, Model A19211 6.5-inch Super Retina HD display with OLED technology A12 Bionic chip with ...",
     price: 899,
-    category: "smartphones",
-    images: "https://i.dummyjson.com/data/products/2/1.jpg",
   },
   {
     id: "3",
@@ -22,16 +18,12 @@ export const productList = [
     description:
       "Samsung's new variant which goes beyond Galaxy to the Universe",
     price: 1249,
-    category: "smartphones",
-    images: "https://i.dummyjson.com/data/products/3/1.jpg",
   },
   {
     id: "4",
     title: "OPPOF19",
     description: "OPPO F19 is officially announced on April 2021.",
     price: 280,
-    category: "smartphones",
-    images: "https://i.dummyjson.com/data/products/4/2.jpg",
   },
   {
     id: "5",
@@ -39,8 +31,6 @@ export const productList = [
     description:
       "Huawei’s re-badged P30 Pro New Edition was officially unveiled yesterday in Germany and now the device has made its way to the UK.",
     price: 499,
-    category: "smartphones",
-    images: "https://i.dummyjson.com/data/products/5/1.jpg",
   },
   {
     id: "6",
@@ -48,8 +38,6 @@ export const productList = [
     description:
       "MacBook Pro 2021 with mini-LED display may launch between September, November",
     price: 1749,
-    category: "laptops",
-    images: "https://i.dummyjson.com/data/products/6/1.png",
   },
   {
     id: "7",
@@ -57,8 +45,6 @@ export const productList = [
     description:
       "Samsung Galaxy Book S (2020) Laptop With Intel Lakefield Chip, 8GB of RAM Launched",
     price: 1499,
-    category: "laptops",
-    images: "https://i.dummyjson.com/data/products/7/1.jpg",
   },
   {
     id: "8",
@@ -66,8 +52,6 @@ export const productList = [
     description:
       "Style and speed. Stand out on HD video calls backed by Studio Mics. Capture ideas on the vibrant touchscreen.",
     price: 1499,
-    category: "laptops",
-    images: "https://i.dummyjson.com/data/products/8/3.jpg",
   },
   {
     id: "9",
@@ -75,8 +59,6 @@ export const productList = [
     description:
       "Infinix Inbook X1 Ci3 10th 8GB 256GB 14 Win10 Grey – 1 Year Warranty",
     price: 1099,
-    category: "laptops",
-    images: "https://i.dummyjson.com/data/products/9/2.png",
   },
   {
     id: "10",
@@ -84,8 +66,6 @@ export const productList = [
     description:
       "HP Pavilion 15-DK1056WM Gaming Laptop 10th Gen Core i5, 8GB, 256GB SSD, GTX 1650 4GB, Windows 10",
     price: 1099,
-    category: "laptops",
-    images: "https://i.dummyjson.com/data/products/10/2.jpg",
   },
   {
     id: "11",
@@ -93,16 +73,12 @@ export const productList = [
     description:
       "Mega Discount, Impression of Acqua Di Gio by GiorgioArmani concentrated attar perfume Oil",
     price: 13,
-    category: "fragrances",
-    images: "https://i.dummyjson.com/data/products/11/2.jpg",
   },
   {
     id: "12",
     title: "Brown Perfume",
     description: "Royal_Mirage Sport Brown Perfume for Men & Women - 120ml",
     price: 40,
-    category: "fragrances",
-    images: "https://i.dummyjson.com/data/products/12/2.jpg",
   },
   {
     id: "13",
@@ -110,8 +86,6 @@ export const productList = [
     description:
       "Product details of Best Fog Scent Xpressio Perfume 100ml For Men cool long lasting perfumes for Men",
     price: 13,
-    category: "fragrances",
-    images: "https://i.dummyjson.com/data/products/13/4.jpg",
   },
   {
     id: "14",
@@ -119,8 +93,6 @@ export const productList = [
     description:
       "Original Al Munakh® by Mahal Al Musk | Our Impression of Climate | 6ml Non-Alcoholic Concentrated Perfume Oil",
     price: 120,
-    category: "fragrances",
-    images: "https://i.dummyjson.com/data/products/14/2.jpg",
   },
   {
     id: "15",
@@ -128,8 +100,6 @@ export const productList = [
     description:
       "Genuine  Al-Rehab spray perfume from UAE/Saudi Arabia/Yemen High Quality",
     price: 30,
-    category: "fragrances",
-    images: "https://i.dummyjson.com/data/products/15/2.jpg",
   },
   {
     id: "16",
@@ -137,8 +107,6 @@ export const productList = [
     description:
       "L'OrÃ©al Paris introduces Hyaluron Expert Replumping Serum formulated with 1.5% Hyaluronic Acid",
     price: 19,
-    category: "skincare",
-    images: "https://i.dummyjson.com/data/products/16/2.webp",
   },
   {
     id: "17",
@@ -146,8 +114,6 @@ export const productList = [
     description:
       "Tea tree oil contains a number of compounds, including terpinen-4-ol, that have been shown to kill certain bacteria,",
     price: 12,
-    category: "skincare",
-    images: "https://i.dummyjson.com/data/products/17/3.jpg",
   },
   {
     id: "18",
@@ -155,8 +121,6 @@ export const productList = [
     description:
       "Dermive Oil Free Moisturizer with SPF 20 is specifically formulated with ceramides, hyaluronic acid & sunscreen.",
     price: 40,
-    category: "skincare",
-    images: "https://i.dummyjson.com/data/products/18/thumbnail.jpg",
   },
   {
     id: "19",
@@ -164,8 +128,6 @@ export const productList = [
     description:
       "Product name: rorec collagen hyaluronic acid white face serum riceNet weight: 15 m",
     price: 46,
-    category: "skincare",
-    images: "https://i.dummyjson.com/data/products/19/1.jpg",
   },
   {
     id: "20",
@@ -173,24 +135,18 @@ export const productList = [
     description:
       "Fair & Clear is Pakistan's only pure Freckle cream which helpsfade Freckles, Darkspots and pigments. Mercury level is 0%, so there are no side effects.",
     price: 70,
-    category: "skincare",
-    images: "https://i.dummyjson.com/data/products/20/thumbnail.jpg",
   },
   {
     id: "21",
     title: "- Daal Masoor 500 grams",
     description: "Fine quality Branded Product Keep in a cool and dry place",
     price: 20,
-    category: "groceries",
-    images: "https://i.dummyjson.com/data/products/21/3.jpg",
   },
   {
     id: "22",
     title: "Elbow Macaroni - 400 gm",
     description: "Product details of Bake Parlor Big Elbow Macaroni - 400 gm",
     price: 14,
-    category: "groceries",
-    images: "https://i.dummyjson.com/data/products/22/1.jpg",
   },
   {
     id: "23",
@@ -198,8 +154,6 @@ export const productList = [
     description:
       "Specifications of Orange Essence Food Flavour For Cakes and Baking Food Item",
     price: 14,
-    category: "groceries",
-    images: "https://i.dummyjson.com/data/products/23/thumbnail.jpg",
   },
   {
     id: "24",
@@ -207,16 +161,12 @@ export const productList = [
     description:
       "original fauji cereal muesli 250gm box pack original fauji cereals muesli fruit nuts flakes breakfast cereal break fast faujicereals cerels cerel foji fouji",
     price: 46,
-    category: "groceries",
-    images: "https://i.dummyjson.com/data/products/24/3.jpg",
   },
   {
     id: "25",
     title: "Gulab Powder 50 Gram",
     description: "Dry Rose Flower Powder Gulab Powder 50 Gram • Treats Wounds",
     price: 70,
-    category: "groceries",
-    images: "https://i.dummyjson.com/data/products/25/3.png",
   },
   {
     id: "26",
@@ -224,8 +174,6 @@ export const productList = [
     description:
       "Boho Decor Plant Hanger For Home Wall Decoration Macrame Wall Hanging Shelf",
     price: 41,
-    category: "home-decoration",
-    images: "https://i.dummyjson.com/data/products/26/3.jpg",
   },
   {
     id: "27",
@@ -233,8 +181,6 @@ export const productList = [
     description:
       "Package Include 6 Birds with Adhesive Tape Shape: 3D Shaped Wooden Birds Material: Wooden MDF, Laminated 3.5mm",
     price: 51,
-    category: "home-decoration",
-    images: "https://i.dummyjson.com/data/products/27/2.jpg",
   },
   {
     id: "28",
@@ -242,8 +188,6 @@ export const productList = [
     description:
       "3D led lamp sticker Wall sticker 3d wall art light on/off button  cell operated (included)",
     price: 20,
-    category: "home-decoration",
-    images: "https://i.dummyjson.com/data/products/28/2.jpg",
   },
   {
     id: "29",
@@ -251,8 +195,6 @@ export const productList = [
     description:
       "Handcraft Chinese style art luxury palace hotel villa mansion home decor ceramic vase with brass fruit plate",
     price: 60,
-    category: "home-decoration",
-    images: "https://i.dummyjson.com/data/products/29/2.jpg",
   },
   {
     id: "30",
@@ -260,7 +202,5 @@ export const productList = [
     description:
       "Attractive DesignMetallic materialFour key hooksReliable & DurablePremium Quality",
     price: 30,
-    category: "home-decoration",
-    images: "https://i.dummyjson.com/data/products/30/3.jpg",
   },
 ];

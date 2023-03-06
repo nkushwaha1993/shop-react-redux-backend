@@ -6,7 +6,10 @@
   "scripts": {
     "test": "jest",
     "test:coverage": "jest --collect-coverage",
-    "deploy": "npm run test && sls deploy"
+    "deploy": "npm run test && sls deploy",
+    "db:fill:products": "aws dynamodb batch-write-item --request-items file://src/mocks/products.json",
+    "db:fill:stocks": "aws dynamodb batch-write-item --request-items file://src/mocks/stocks.json",
+    "db:fill": "npm run db:fill:products && npm run db:fill:stocks"
   },
   "engines": {
     "node": ">=14.15.0"
