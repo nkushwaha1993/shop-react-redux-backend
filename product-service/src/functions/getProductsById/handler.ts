@@ -4,20 +4,47 @@ import {
 } from "@libs/api-gateway";
 import { middyfy } from "@libs/lambda";
 import { APIGatewayProxyResult } from "aws-lambda";
-import productsService from "../../service";
+import { db, ProductsTableName, StocksTableName } from "src/utils/dynamoDB";
+
+const getProduct = async (id: string) => {
+  return await db
+    .get({
+      TableName: ProductsTableName,
+      Key: {
+        id,
+      },
+    })
+    .promise();
+};
+
+const getStock = async (product_id: string) => {
+  return await db
+    .get({
+      TableName: StocksTableName,
+      Key: {
+        product_id,
+      },
+    })
+    .promise();
+};
 
 export const getProductsById: ValidatedEventAPIGatewayProxyEvent<
   unknown
 > = async (event): Promise<APIGatewayProxyResult> => {
-  const { productId } = event.pathParameters;
   try {
-    const item = await productsService.getProductById(productId);
-
-    if (!item) {
+    console.log(`Incoming event: ${JSON.stringify(event)}`);
+    const { productId } = event.pathParameters;
+    const [product, stock] = await Promise.all([
+      getProduct(productId),
+      getStock(productId),
+    ]);
+    if (product.Item && stock.Item) {
+      const item = { ...product.Item, count: stock.Item.count || 0 };
+      console.log(`getProductById: ${JSON.stringify(item)}`);
+      return formatJSONResponse(200, item);
+    } else {
       return formatJSONResponse(404, undefined);
     }
-
-    return formatJSONResponse(200, item);
   } catch (e) {
     return formatJSONResponse(500, e);
   }

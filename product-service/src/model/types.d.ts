@@ -1,10 +1,13 @@
 export interface Product {
-    id: string,
-    title: string,
-    description: string,
-    price: number,
-    category: string,
-    images: string,
+  id: string;
+  title: string;
+  description: string;
+  price: number;
 }
 
-export type ProductsList = Product[]
+export type ProductsList = Product[];
+
+export type Stock = {
+  product_id: string;
+  count: number;
+};
