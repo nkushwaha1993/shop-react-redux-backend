@@ -1,36 +1,15 @@
 import * as AWS from "aws-sdk";
 import { S3CreateEvent } from "aws-lambda";
 import csvParser from "csv-parser";
-import {
-  CloudWatchLogsClient,
-  PutLogEventsCommand,
-} from "@aws-sdk/client-cloudwatch-logs";
 
-const logsClient = new CloudWatchLogsClient({});
 const log = (message: string) => {
   console.log(message);
-
-  return logsClient
-    .send(
-      new PutLogEventsCommand({
-        logGroupName: "import-file-parser",
-        logStreamName: "importing-file",
-        logEvents: [
-          {
-            message,
-            timestamp: Date.now(),
-          },
-        ],
-      })
-    )
-    .catch((err) => {
-      console.log(err, err?.stack);
-    });
 };
 export const importFileParser = async (event: S3CreateEvent) => {
   const bucket = event.Records[0].s3.bucket.name;
   const key = event.Records[0].s3.object.key;
   const s3 = new AWS.S3({ region: "us-east-1" });
+  const sqs = new AWS.SQS({ region: "us-east-1" });
   const s3Stream = s3
     .getObject({
       Bucket: bucket,
@@ -41,7 +20,17 @@ export const importFileParser = async (event: S3CreateEvent) => {
   s3Stream
     .pipe(csvParser())
     .on("data", async (data) => {
-      await log(JSON.stringify(data));
+      const message = await JSON.stringify(data);
+      await log(message);
+      sqs.sendMessage(
+        {
+          QueueUrl: process.env.SQS_URL,
+          MessageBody: message,
+        },
+        () => {
+          console.log("Send message: ", message);
+        }
+      );
     })
     .on("error", async (error) => {
       await log(error.message);
