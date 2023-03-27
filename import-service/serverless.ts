@@ -34,6 +34,11 @@ const serverlessConfiguration: AWS = {
         Action: "s3:*",
         Resource: "arn:aws:s3:::knowyourlogy-uploads/*",
       },
+      {
+        Effect: "Allow",
+        Action: ["sqs:SendMessage", "sqs:GetQueueUrl"],
+        Resource: "arn:aws:sqs:us-east-1:691449872622:catalogItemsQueue",
+      },
     ],
   },
   // import the function via paths

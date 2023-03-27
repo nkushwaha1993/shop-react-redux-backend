@@ -3,6 +3,7 @@ import type { AWS } from "@serverless/typescript";
 import getProductsList from "@functions/getProductsList";
 import getProductsById from "@functions/getProductsById";
 import createProduct from "@functions/createProduct";
+import catalogBatchProcess from "@functions/catalogBatchProcess";
 
 const serverlessConfiguration: AWS = {
   service: "product-service",
@@ -44,6 +45,11 @@ const serverlessConfiguration: AWS = {
               { "Fn::GetAtt": ["stocks", "Arn"] },
             ],
           },
+          {
+            Effect: "Allow",
+            Action: "sns:*",
+            Resource: { Ref: "createProductTopic" },
+          },
         ],
       },
     },
@@ -52,6 +58,7 @@ const serverlessConfiguration: AWS = {
     getProductsById,
     getProductsList,
     createProduct,
+    catalogBatchProcess,
   },
   package: {
     individually: true,
@@ -59,7 +66,7 @@ const serverlessConfiguration: AWS = {
   custom: {
     autoswagger: {
       apiType: "http",
-      generateSwaggerOnDeploy: true,
+      generateSwaggerOnDeploy: false,
       basePath: `/dev/`,
       useStage: false,
       excludeStages: [],
@@ -121,6 +128,29 @@ const serverlessConfiguration: AWS = {
             WriteCapacityUnits: 1,
           },
           TableName: "stocks",
+        },
+      },
+      CatalogItemsQueue: {
+        Type: "AWS::SQS::Queue",
+        Properties: {
+          QueueName: "catalogItemsQueue",
+        },
+      },
+      createProductTopic: {
+        Type: "AWS::SNS::Topic",
+        Properties: {
+          DisplayName: "Create Product Topic",
+          TopicName: "createProductTopic",
+        },
+      },
+      createProductTopicSubscription: {
+        Type: "AWS::SNS::Subscription",
+        Properties: {
+          Endpoint: "neeraj_kushwaha@epam.com",
+          Protocol: "email",
+          TopicArn: {
+            Ref: "createProductTopic",
+          },
         },
       },
     },
