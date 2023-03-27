@@ -39,12 +39,19 @@ const serverlessConfiguration: AWS = {
         Action: ["sqs:SendMessage", "sqs:GetQueueUrl"],
         Resource: "arn:aws:sqs:us-east-1:691449872622:catalogItemsQueue",
       },
+      {
+        Effect: "Allow",
+        Action: ["lambda:InvokeFunction"],
+        Resource: "${self:custom.authArn}",
+      },
     ],
   },
   // import the function via paths
   functions: { importProductsFile, importFileParser },
   package: { individually: true },
   custom: {
+    authArn:
+      "arn:aws:lambda:us-east-1:691449872622:function:authorization-service-dev-basicAuthorizer",
     esbuild: {
       bundle: true,
       minify: false,
@@ -57,11 +64,28 @@ const serverlessConfiguration: AWS = {
     },
     autoswagger: {
       apiType: "http",
-      generateSwaggerOnDeploy: true,
+      generateSwaggerOnDeploy: false,
       basePath: `/dev/`,
       useStage: false,
       excludeStages: [],
       typefiles: ["./src/model/types.d.ts"],
+    },
+  },
+  resources: {
+    Resources: {
+      GatewayResponse: {
+        Type: "AWS::ApiGateway::GatewayResponse",
+        Properties: {
+          RestApiId: {
+            Ref: "ApiGatewayRestApi",
+          },
+          ResponseType: "DEFAULT_4XX",
+          ResponseParameters: {
+            "gatewayresponse.header.Access-Control-Allow-Origin": "'*'",
+            "gatewayresponse.header.Access-Control-Allow-Headers": "'*'",
+          },
+        },
+      },
     },
   },
 };
