@@ -4,9 +4,6 @@ jspm_packages
 
 # Serverless directories
 .serverless
-.idea
-.nvmrc
+
+# esbuild directories
 .esbuild
-coverage/
-swagger/
-authorization-service/.env
